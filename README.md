@@ -46,10 +46,6 @@
    ```
 3. Open `index.html` in your browser to start using **SOFIA**.
 
-## 📌 **Future Enhancements**
-- 🌟 Improve **AI-based conversational abilities**.
-- 🌍 Integrate **multi-language support**.
-- 📲 Build a **mobile-friendly version**.
 
 ## 👨‍💻 **Author**
 MOHAMMAD KAIF Creator & Developer
