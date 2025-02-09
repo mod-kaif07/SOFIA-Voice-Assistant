@@ -52,7 +52,7 @@
 - 📲 Build a **mobile-friendly version**.
 
 ## 👨‍💻 **Author**
-- **[Your Name]** – Creator & Developer
+MOHAMMAD KAIF Creator & Developer
 
 ## 🏆 **Contributions**
 Pull requests are welcome! If you'd like to contribute, please fork the repository and submit a **PR** with your enhancements. 🎉
