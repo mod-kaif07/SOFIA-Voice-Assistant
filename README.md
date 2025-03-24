@@ -77,31 +77,7 @@ json
   "main": {"temp": 289.92, "humidity": 56},
   "name": "London"
 }
-How It Works in Code:
 
-function weather(location) {
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      document.querySelector(".temp").innerHTML = `Temperature: ${data.main.temp}°C`;
-    });
-}
-2️⃣ WeatherAPI (Geolocation Fetching)
-API Endpoint:
-http://api.weatherapi.com/v1/current.json?key={API_KEY}&q={latitude},{longitude}
-How It Works in Code:
-
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(async function (position) {
-    let lat = position.coords.latitude;
-    let lon = position.coords.longitude;
-    const url = `http://api.weatherapi.com/v1/current.json?key=${locationApiKey}&q=${lat},${lon}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data.location.name); // Displays location name
-  });
-}
 
 🗑️ Clearing Local Storage
 Stored user preferences can be cleared manually.
