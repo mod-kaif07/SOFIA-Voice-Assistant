@@ -56,18 +56,7 @@ Click "Start" to activate SOFIA.
 
 Click "Stop" to deactivate it.
 
-2️⃣ Speak a Command
-Examples:
 
-"What’s the weather today?" → Fetches and speaks weather updates.
-
-"My location" → Retrieves current latitude & longitude and opens Google Maps.
-
-"Open YouTube" → Opens YouTube in a new tab.
-
-"Calculate 10 plus 5" → Responds with "The sum is 15".
-
-"Tell me a joke" → Responds with a funny joke.
 
 3️⃣ Local Storage
 The assistant stores user details (name, location, GitHub, LinkedIn).
@@ -100,8 +89,6 @@ function weather(location) {
 }
 2️⃣ WeatherAPI (Geolocation Fetching)
 API Endpoint:
-
-
 http://api.weatherapi.com/v1/current.json?key={API_KEY}&q={latitude},{longitude}
 How It Works in Code:
 
@@ -115,16 +102,7 @@ if (navigator.geolocation) {
     console.log(data.location.name); // Displays location name
   });
 }
-🔗 List of Available Voice Commands
-Command	Action
-"What’s the weather?"	Fetches real-time weather
-"My location"	Shows latitude & longitude
-"Open YouTube"	Opens YouTube
-"Open LinkedIn"	Opens LinkedIn
-"Calculate 5 plus 10"	Performs addition
-"Tell me the time"	Tells current time
-"Open Wikipedia"	Opens Wikipedia
-"Search for AI"	Performs a Google search
+
 🗑️ Clearing Local Storage
 Stored user preferences can be cleared manually.
 
