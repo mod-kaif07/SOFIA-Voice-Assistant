@@ -24,6 +24,13 @@ SOFIA is an interactive AI-powered voice assistant built using **JavaScript, Spe
 
 ---
 
+## 🌟 **Project Overview**
+![SOFIA AI Voice Assistant]![Screenshot 2025-03-24 223143](https://github.com/user-attachments/assets/dc52bae8-70ee-4db0-8c5e-61943c744529)
+
+ tou can add details in this way :-
+ ![Screenshot 2025-03-24 223419](https://github.com/user-attachments/assets/39561b33-b39a-4d84-b51d-75212f8f8c82)
+
+
 ## 🛠️ **Setup & Installation**
 ### **1️⃣ Clone the Repository**
 
@@ -72,8 +79,6 @@ To clear storage, click the "Clear Local Storage" button.
 🌩️ API & Data Handling
 1️⃣ OpenWeatherMap API (Weather Fetching)
 API Endpoint:
-
-
 https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}
 Example Response:
 
@@ -151,6 +156,3 @@ document.querySelector("#local_stroge").addEventListener("click", () => {
 📜 License
 This project is open-source under the MIT License. Feel free to contribute! 🎉
 
-yaml
-Copy
-Edit
