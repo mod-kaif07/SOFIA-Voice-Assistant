@@ -1,61 +1,156 @@
-# SOFIA-Voice-Assistant
-🚀 **SOFIA - AI Voice Assistant**: A **JavaScript-powered voice assistant** with **real-time weather updates, speech recognition, and smart automation** using APIs for seamless interaction.
+# SOFIA - AI Voice Assistant 🎙️  
 
+SOFIA is an interactive AI-powered voice assistant built using **JavaScript, Speech Recognition, and Speech Synthesis APIs**. It listens to user commands, fetches real-time data (like weather updates), performs calculations, and integrates with web services for a seamless user experience.  
 
+## 🌟 **Key Features**
+- 🎤 **Voice Recognition & Speech Output**: Uses **Web Speech API** for real-time speech-to-text and text-to-speech.
+- 🌍 **Weather Updates**: Fetches weather data using **OpenWeatherMap API**.
+- 🔋 **Battery & Network Monitoring**: Displays battery status and online connectivity.
+- 🗺️ **Geolocation Services**: Retrieves the user's current location via **WeatherAPI**.
+- 🌐 **Web Automation**: Opens websites like Google, Wikipedia, YouTube, and LinkedIn on voice command.
+- 🧠 **Local Storage Management**: Stores user preferences (name, location, and accounts) and retrieves them upon restart.
+- 🔢 **Mathematical Operations**: Supports addition, subtraction, multiplication, and division using voice commands.
+- 📅 **Date & Time Retrieval**: Announces the current time and date on request.
 
-## 🎯 **Key Features**
+---
 
-### 🔊 **Voice Recognition & Response**
-- Uses **JavaScript's SpeechRecognition API** to process voice commands.
-- Implements **SpeechSynthesis API** for real-time voice responses.
-- Recognizes and executes voice-based commands dynamically.
-
-### ☁️ **Weather & Location Services**
-- Fetches real-time **weather updates** using **OpenWeatherMap API**.
-- Provides weather details like **temperature, humidity, and conditions**.
-- Integrates with **Google Maps** for location tracking and navigation.
-
-### 🔗 **Web Automation & Smart Controls**
-- Opens frequently used websites like **Google, YouTube, Amazon, Wikipedia, LinkedIn, and GitHub** via voice commands.
-- Supports **Google Search queries** for instant information retrieval.
-- Detects and announces **online/offline** status dynamically.
-
-### 🔋 **Battery & System Status**
-- Monitors **real-time battery status** and provides spoken updates.
-- Displays the **current time and date** dynamically.
-- Animates an **interactive Google Assistant UI** for a sleek user experience.
-
-### 🔢 **Math & Calculation Commands**
-- Performs **basic arithmetic operations** (Addition, Subtraction, etc.).
-- Can process multiple numbers from spoken inputs for calculations.
-
-## 🛠 **Tech Stack**
-- **HTML, CSS, JavaScript** (Frontend)
-- **SpeechRecognition & SpeechSynthesis API** (Voice Processing)
+## ⚙️ **Tech Stack**
+- **JavaScript (ES6+)**
+- **Web Speech API** (Speech Recognition & Synthesis)
 - **OpenWeatherMap API** (Weather Fetching)
-- **Google Maps API** (Location Services)
+- **WeatherAPI** (Location-based data)
+- **Local Storage API** (Persistent user settings)
+- **HTML & CSS** (User Interface)
 
-## 🚀 **Getting Started**
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/sofia-voice-assistant.git
-   ```
-2. Navigate to the project folder:
-   ```bash
-   cd sofia-voice-assistant
-   ```
-3. Open `index.html` in your browser to start using **SOFIA**.
+---
+
+## 🛠️ **Setup & Installation**
+### **1️⃣ Clone the Repository**
+
+git clone https://github.com/yourusername/sofia-voice-assistant.git
+cd sofia-voice-assistant
+
+2️⃣ Open in a Browser
+Simply open index.html in a modern browser (Chrome recommended).
+
+3️⃣ API Configuration
+Register for an OpenWeatherMap API key at:
+https://home.openweathermap.org/api_keys
+
+Replace the apiKey in voice.js:
+
+const apiKey = "YOUR_OPENWEATHERMAP_API_KEY";
+WeatherAPI (for location data) key:
+
+const locationApiKey = "YOUR_WEATHERAPI_KEY";
+🔥 How It Works
+1️⃣ Start & Stop Voice Recognition
+Click "Start" to activate SOFIA.
+
+Click "Stop" to deactivate it.
+
+2️⃣ Speak a Command
+Examples:
+
+"What’s the weather today?" → Fetches and speaks weather updates.
+
+"My location" → Retrieves current latitude & longitude and opens Google Maps.
+
+"Open YouTube" → Opens YouTube in a new tab.
+
+"Calculate 10 plus 5" → Responds with "The sum is 15".
+
+"Tell me a joke" → Responds with a funny joke.
+
+3️⃣ Local Storage
+The assistant stores user details (name, location, GitHub, LinkedIn).
+
+This data persists between browser sessions.
+
+To clear storage, click the "Clear Local Storage" button.
+
+🌩️ API & Data Handling
+1️⃣ OpenWeatherMap API (Weather Fetching)
+API Endpoint:
 
 
-## 👨‍💻 **Author**
-MOHAMMAD KAIF Creator & Developer
+https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}
+Example Response:
 
-## 🏆 **Contributions**
-Pull requests are welcome! If you'd like to contribute, please fork the repository and submit a **PR** with your enhancements. 🎉
+json
+{
+  "weather": [{"main": "Clear", "description": "clear sky"}],
+  "main": {"temp": 289.92, "humidity": 56},
+  "name": "London"
+}
+How It Works in Code:
+
+function weather(location) {
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      document.querySelector(".temp").innerHTML = `Temperature: ${data.main.temp}°C`;
+    });
+}
+2️⃣ WeatherAPI (Geolocation Fetching)
+API Endpoint:
 
 
+http://api.weatherapi.com/v1/current.json?key={API_KEY}&q={latitude},{longitude}
+How It Works in Code:
 
-🔹 **SOFIA** – Your Smart Voice Assistant for a Seamless Experience! 🚀
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(async function (position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    const url = `http://api.weatherapi.com/v1/current.json?key=${locationApiKey}&q=${lat},${lon}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data.location.name); // Displays location name
+  });
+}
+🔗 List of Available Voice Commands
+Command	Action
+"What’s the weather?"	Fetches real-time weather
+"My location"	Shows latitude & longitude
+"Open YouTube"	Opens YouTube
+"Open LinkedIn"	Opens LinkedIn
+"Calculate 5 plus 10"	Performs addition
+"Tell me the time"	Tells current time
+"Open Wikipedia"	Opens Wikipedia
+"Search for AI"	Performs a Google search
+🗑️ Clearing Local Storage
+Stored user preferences can be cleared manually.
 
+Click "Clear Local Storage", and settings will reset.
 
+document.querySelector("#local_stroge").addEventListener("click", () => {
+  localStorage.clear();
+  location.reload();
+});
+🎯 Why This Project Stands Out?
+✅ Real-time API integration for weather & location
+✅ Voice-controlled browser automation
+✅ Persistent user settings with Local Storage
+✅ Works Offline (for calculations & basic responses)
+✅ Supports multiple commands including search & navigation
 
+📌 Future Enhancements
+🔊 Custom AI-generated responses (ChatGPT API)
+
+📡 Enhanced geolocation tracking (Google Maps API)
+
+🗣️ Multiple language support for speech recognition
+
+👨‍💻 Developed By
+👤 Mohammad Kaif
+🔗 LinkedIn: https://www.linkedin.com/in/mohammad-kaif-9a0bb6284/
+📧 Email:mohammadkaif6660@gmail.com
+
+📜 License
+This project is open-source under the MIT License. Feel free to contribute! 🎉
+
+yaml
+Copy
+Edit
